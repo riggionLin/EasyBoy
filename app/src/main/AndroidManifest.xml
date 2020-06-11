@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".DownLoadIMageIntentService"/>
+        <activity android:name=".viewmodel.ViewModelActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".intentService.IntentServiceActivity" android:screenOrientation="portrait"/>
+        <service android:name=".intentService.DownLoadIMageIntentService"/>
     </application>
 
 </manifest>

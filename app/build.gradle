@@ -30,7 +30,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //liveData需要添加的依赖
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-beta01"
     implementation 'com.badoo.mobile:android-weak-handler:1.1'
+    //实现组件化添加me模块
     addComponent 'me', project(':me')
 }

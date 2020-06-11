@@ -1,15 +1,16 @@
-package com.example.rorydemo
+package com.example.rorydemo.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.badoo.mobile.util.WeakHandler
+import com.example.rorydemo.User
 
 /**
  * Author by roryLin, Email xx@xx.com, Date on 2020/6/1.
  */
 class MyViewModel :ViewModel(){
+
     var name :MutableLiveData<String>? = null
     get() {
         if (field == null){
@@ -27,8 +28,6 @@ class MyViewModel :ViewModel(){
     }
 
     val currInfoSwitchMap:LiveData<List<String>> = Transformations.switchMap(id,::getListData1)
-
-
 
     fun getListData1(id:Int):LiveData<List<String>>{
         var list = MutableLiveData<List<String>>()

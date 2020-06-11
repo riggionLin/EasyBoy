@@ -11,7 +11,6 @@ import androidx.core.app.ActivityCompat
 class DebugActivity :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Toast.makeText(this,"hello CC",Toast.LENGTH_SHORT).show()
-        finish()
+        setContentView(R.layout.me_activity_debug)
     }
 }
