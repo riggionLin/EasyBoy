@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.billy.cc.core.component.CC
+import com.example.rorydemo.generi.GenericActivity
 import com.example.rorydemo.intentService.IntentServiceActivity
 import com.example.rorydemo.viewmodel.ViewModelActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
                 .setActionName("testactivity")
                 .build()
                 .call()
+        }
+
+        btn4.setOnClickListener {
+            startActivity(Intent(this, GenericActivity::class.java))
         }
     }
 

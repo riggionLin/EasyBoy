@@ -19,6 +19,7 @@
 
         <activity android:name=".viewmodel.ViewModelActivity" android:screenOrientation="portrait"/>
         <activity android:name=".intentService.IntentServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".generi.GenericActivity" android:screenOrientation="portrait"/>
         <service android:name=".intentService.DownLoadIMageIntentService"/>
     </application>
 
