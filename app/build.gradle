@@ -33,6 +33,8 @@ dependencies {
     //liveData需要添加的依赖
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-beta01"
     implementation 'com.badoo.mobile:android-weak-handler:1.1'
+    //EventBus框架通信
+    implementation 'org.greenrobot:eventbus:3.0.0'
     //实现组件化添加me模块
     addComponent 'me', project(':me')
 }
