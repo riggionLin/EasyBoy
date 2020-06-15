@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.billy.cc.core.component.CC
 import com.example.rorydemo.generi.GenericActivity
 import com.example.rorydemo.intentService.IntentServiceActivity
+import com.example.rorydemo.leecode.LeeCodeActivity
 import com.example.rorydemo.viewmodel.ViewModelActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -41,6 +42,23 @@ class MainActivity : AppCompatActivity() {
         btn4.setOnClickListener {
             startActivity(Intent(this, GenericActivity::class.java))
         }
+
+        btn5.setOnClickListener {
+            startActivity(Intent(this, LeeCodeActivity::class.java))
+        }
+        fill(1, arrayOf(1,2,3))
     }
+
+
+    private fun <T> fill(t: T, arr:Array<in T>){
+        arr[0] = t
+    }
+
+    private fun <T> copy( arr1:Array<out T>, arr2:Array<in T>){
+        arr1.forEachIndexed { index, t ->
+            arr2[index] = arr1[index]
+        }
+    }
+
 
 }
