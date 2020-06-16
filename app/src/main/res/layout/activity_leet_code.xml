@@ -4,7 +4,23 @@
     android:layout_height="match_parent">
     <Button
         android:id="@+id/btn1"
-        android:text="相同的树"
+        android:text="是否为相同的树"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn2"
+        android:text="是否为对称树"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn3"
+        android:text="快速排序"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
