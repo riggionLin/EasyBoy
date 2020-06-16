@@ -19,8 +19,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
-        android:id="@+id/btn3"
-        android:text="快速排序"
+    android:id="@+id/btn3"
+    android:text="快速排序"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn4"
+        android:text="二叉树最大深度"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn5"
+        android:text="树的遍历"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

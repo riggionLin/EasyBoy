@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rorydemo.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Author by roryLin, Email xx@xx.com, Date on 2020/6/15.
  */
@@ -25,6 +28,8 @@ public class LeeCodeActivity extends AppCompatActivity {
         Button btn1=(Button) findViewById(R.id.btn1);
         Button btn2=(Button) findViewById(R.id.btn2);
         Button btn3=(Button) findViewById(R.id.btn3);
+        Button btn4=(Button) findViewById(R.id.btn4);
+        Button btn5=(Button) findViewById(R.id.btn5);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +67,19 @@ public class LeeCodeActivity extends AppCompatActivity {
             }
         });
 
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leetCode104();
+            }
+        });
+
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leetCode107();
+            }
+        });
     }
 
     private void quickSort(int[] arr, int low, int high) {
@@ -141,11 +159,78 @@ public class LeeCodeActivity extends AppCompatActivity {
         tree1.right = node2;
         tree2.left = node1;
         tree2.right = node2;
+        node1.left = node3;
+        node3.right = node4;
         StringBuilder sb = new StringBuilder();
         sb.append("是否是相同的树");
         sb.append(isSameTree(tree1,tree2));
+
+        sb.append(" 最大层数：");
+        //sb.append(treeMax(tree1,1));
+        sb.append(maxDepth(tree1));
+
         Toast.makeText(this,sb.toString(),Toast.LENGTH_SHORT).show();
 
+    }
+
+    private void leetCode104(){
+        TreeNode tree1= new TreeNode(0);
+        TreeNode node1= new TreeNode(1);
+        TreeNode node2= new TreeNode(2);
+        TreeNode tree2= new TreeNode(0);
+        TreeNode node3= new TreeNode(3);
+        TreeNode node4= new TreeNode(4);
+        TreeNode node5= new TreeNode(5);
+        tree1.left = node1;
+        tree1.right = node2;
+        tree2.left = node1;
+        tree2.right = node2;
+        node1.left = node3;
+        node3.right = node4;
+        node3.left = node5;
+        StringBuilder sb = new StringBuilder();
+        sb.append("二叉树最大层数：");
+        sb.append(maxDepth(tree1));
+
+        Toast.makeText(this,sb.toString(),Toast.LENGTH_SHORT).show();
+
+    }
+
+    /**
+     * 个人解法
+     * @param oneTree
+     * @param num
+     * @return
+     */
+    private int treeMax(TreeNode oneTree,int num){
+        int x,y;
+        x = num;
+        y = num;
+         if (oneTree.left == null && oneTree.right ==null){
+            return x;
+        }else if (oneTree.left == null && oneTree.right != null){
+            return treeMax(oneTree.right,++x);
+        }else if (oneTree.right == null && oneTree.left != null){
+            return treeMax(oneTree.left,++y);
+        }else {
+            int left = treeMax(oneTree.left,++x);
+            int right = treeMax(oneTree.right,++y);
+            return left > right ? left :right;
+        }
+    }
+
+    /**
+     * 官方解法
+     * @param oneTree
+     * @return
+     */
+    private int maxDepth(TreeNode oneTree){
+        if (oneTree == null){
+            return 0;
+        }
+        int left = maxDepth(oneTree.left);
+        int right = maxDepth(oneTree.right);
+        return Math.max(left,right) + 1;
     }
 
     /**
@@ -164,6 +249,47 @@ public class LeeCodeActivity extends AppCompatActivity {
         }else {
            return isSameTree(oneTree.left,towTree.left) && isSameTree(oneTree.right,towTree.right);
         }
+   }
+
+
+   private void leetCode107(){
+       TreeNode tree1= new TreeNode(0);
+       TreeNode node1= new TreeNode(1);
+       TreeNode node2= new TreeNode(2);
+       TreeNode tree2= new TreeNode(0);
+       TreeNode node3= new TreeNode(3);
+       TreeNode node4= new TreeNode(4);
+       TreeNode node5= new TreeNode(5);
+       tree1.left = node1;
+       tree1.right = node2;
+       tree2.left = node1;
+       tree2.right = node2;
+       node1.left = node3;
+       node3.right = node4;
+       node3.left = node5;
+       Toast.makeText(this,""+printTree(tree1),Toast.LENGTH_SHORT).show();
+   }
+    /**
+     * 树的遍历
+     * @param tree
+     * @return
+     */
+   private List<List<Integer>> printTree(TreeNode tree){
+       List<List<Integer>> list = new ArrayList<>();
+      find(tree,1,list);
+      return list;
+   }
+
+   private void find(TreeNode tree,int level, List<List<Integer>> list){
+        if (tree == null){
+            return;
+        }
+        if (level > list.size()){
+            list.add(0,new ArrayList<Integer>());
+        }
+        list.get(list.size() - level).add(tree.value);
+        find(tree.left,level + 1,list);
+        find(tree.right,level + 1,list);
    }
 
     //树类的定义
