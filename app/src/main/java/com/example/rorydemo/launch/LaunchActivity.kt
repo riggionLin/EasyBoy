@@ -4,20 +4,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.map
 import com.example.rorydemo.R
-import com.example.rorydemo.User
 import com.example.rorydemo.utils.viewModelOf
 import kotlinx.android.synthetic.main.launch_activity.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 /**
  * Author by roryLin, Email xx@xx.com, Date on 2020/6/24.
  */
-class LaunchActivity :AppCompatActivity(){
+class LaunchActivity : AppCompatActivity() {
 
     val presenter by lazy {
         viewModelOf<LaunchViewModel>()
@@ -37,7 +32,42 @@ class LaunchActivity :AppCompatActivity(){
         })
 
         btn3.setOnClickListener {
+            val time = System.currentTimeMillis()
+            System.out.println("time1=" + time)
+            lifecycleScope.launch(Dispatchers.IO) {
+                val t1 = async {
+                    delay(3000)
+                    "task1"
+                }
+                val t2 = async {
+                    delay(3000)
+                    "task2"
+                }
+                withContext(Dispatchers.Main) {
+                    var str = "${t1.await()}-${t2.await()}"
+                    val time2 = System.currentTimeMillis()
+                    val tmie3: Int = ((time2 - time) / 1000).toInt()
+                    str += "一共耗时${tmie3}"
+                    tv.text = str
+                }
+            }
+        }
+        btn4.setOnClickListener {
+            val time = System.currentTimeMillis()
+            lifecycleScope.launch(Dispatchers.IO) {
+                delay(3000)
+                var t1 = "task1"
+                delay(3000)
+                var t2 = "task2"
 
+                withContext(Dispatchers.Main) {
+                    var str = "${t1}-${t2}"
+                    val time2 = System.currentTimeMillis()
+                    val tmie3: Int = ((time2 - time) / 1000).toInt()
+                    str += "一共耗时${tmie3}"
+                    tv.text = str
+                }
+            }
         }
 
     }
@@ -49,7 +79,7 @@ class LaunchActivity :AppCompatActivity(){
         tv.text = "开始处理耗时任务"
         lifecycleScope.launch(Dispatchers.IO) {
             delay(3000) //处理耗时操作
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 tv.text = "处理完成"
             }
         }

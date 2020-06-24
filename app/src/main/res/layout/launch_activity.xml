@@ -21,8 +21,14 @@
         android:layout_height="wrap_content"/>
 
     <Button
-        android:text="LiveData协程处理"
+        android:text="协程异步处理"
         android:id="@+id/btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="协程非异步处理"
+        android:id="@+id/btn4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
