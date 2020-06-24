@@ -12,7 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.rorydemo.R;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Author by roryLin, Email xx@xx.com, Date on 2020/6/15.
@@ -174,15 +177,16 @@ public class LeeCodeActivity extends AppCompatActivity {
     }
 
     private void leetCode104(){
-        TreeNode tree1= new TreeNode(0);
+        TreeNode test = new TreeNode(0);
         TreeNode node1= new TreeNode(1);
         TreeNode node2= new TreeNode(2);
         TreeNode tree2= new TreeNode(0);
         TreeNode node3= new TreeNode(3);
         TreeNode node4= new TreeNode(4);
         TreeNode node5= new TreeNode(5);
-        tree1.left = node1;
-        tree1.right = node2;
+        new TreeNode(6);
+        test.left = node1;
+        test.right = node2;
         tree2.left = node1;
         tree2.right = node2;
         node1.left = node3;
@@ -190,7 +194,7 @@ public class LeeCodeActivity extends AppCompatActivity {
         node3.left = node5;
         StringBuilder sb = new StringBuilder();
         sb.append("二叉树最大层数：");
-        sb.append(maxDepth(tree1));
+        sb.append(maxDepth(test));
 
         Toast.makeText(this,sb.toString(),Toast.LENGTH_SHORT).show();
 

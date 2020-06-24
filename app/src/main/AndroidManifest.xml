@@ -21,6 +21,8 @@
         <activity android:name=".intentService.IntentServiceActivity" android:screenOrientation="portrait"/>
         <activity android:name=".generi.GenericActivity" android:screenOrientation="portrait"/>
         <activity android:name=".leecode.LeeCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".kotlin.KotlinActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".launch.LaunchActivity" android:screenOrientation="portrait"/>
         <service android:name=".intentService.DownLoadIMageIntentService"/>
     </application>
 

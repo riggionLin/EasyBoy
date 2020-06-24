@@ -6,6 +6,8 @@ import android.os.Bundle
 import com.billy.cc.core.component.CC
 import com.example.rorydemo.generi.GenericActivity
 import com.example.rorydemo.intentService.IntentServiceActivity
+import com.example.rorydemo.kotlin.KotlinActivity
+import com.example.rorydemo.launch.LaunchActivity
 import com.example.rorydemo.leecode.LeeCodeActivity
 import com.example.rorydemo.viewmodel.ViewModelActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -45,6 +47,14 @@ class MainActivity : AppCompatActivity() {
 
         btn5.setOnClickListener {
             startActivity(Intent(this, LeeCodeActivity::class.java))
+        }
+
+        btn6.setOnClickListener {
+            startActivity(Intent(this, KotlinActivity::class.java))
+        }
+
+        btn7.setOnClickListener {
+            startActivity(Intent(this, LaunchActivity::class.java))
         }
         fill(1, arrayOf(1,2,3))
     }

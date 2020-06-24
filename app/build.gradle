@@ -37,4 +37,8 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.0.0'
     //实现组件化添加me模块
     addComponent 'me', project(':me')
+    //添加kotlin的扩展函数
+    implementation deps.android.ktx.lifecycle
+    implementation deps.android.ktx.livedata
+    implementation deps.android.ktx.viewmodel
 }
