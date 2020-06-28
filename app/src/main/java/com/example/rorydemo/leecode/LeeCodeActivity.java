@@ -33,6 +33,7 @@ public class LeeCodeActivity extends AppCompatActivity {
         Button btn3=(Button) findViewById(R.id.btn3);
         Button btn4=(Button) findViewById(R.id.btn4);
         Button btn5=(Button) findViewById(R.id.btn5);
+        Button btn6=(Button) findViewById(R.id.btn6);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +82,13 @@ public class LeeCodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 leetCode107();
+            }
+        });
+
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leetCode1614();
             }
         });
     }
@@ -273,6 +281,29 @@ public class LeeCodeActivity extends AppCompatActivity {
        node3.left = node5;
        Toast.makeText(this,""+printTree(tree1),Toast.LENGTH_SHORT).show();
    }
+
+    /**
+     * 给定一个有序整数数组，元素各不相同且按升序排列，编写一个算法，创建一棵高度最小的二叉搜索树。
+     * 给定有序数组: [-10,-3,0,5,9],
+     * 一个可能的答案是：[0,-3,9,-10,null,5]，它可以表示下面这个高度平衡二叉搜索树：
+     */
+   private void leetCode1614(){
+       int[] arr = {-10,-3,0,5,9};
+       TreeNode tt =helper(arr,0,arr.length -1);
+       Toast.makeText(this, ""+printTree(tt),Toast.LENGTH_SHORT).show();
+   }
+
+   private TreeNode helper(int[] arr,int start,int end){
+       if (start > end){
+           return  null;
+       }
+       int middle = (start + end + 1) /2;
+       TreeNode tr = new TreeNode(arr[middle]);
+       tr.left =  helper(arr,start,middle -1);
+       tr.right = helper(arr,middle +1 ,end);
+       return  tr;
+   }
+
     /**
      * 树的遍历
      * @param tree
@@ -305,4 +336,6 @@ public class LeeCodeActivity extends AppCompatActivity {
             value = num;
         }
     }
+
+
 }
