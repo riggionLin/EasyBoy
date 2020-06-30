@@ -5,17 +5,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.rorydemo.R;
-
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
 
 /**
  * Author by roryLin, Email xx@xx.com, Date on 2020/6/15.
@@ -34,6 +29,8 @@ public class LeeCodeActivity extends AppCompatActivity {
         Button btn4=(Button) findViewById(R.id.btn4);
         Button btn5=(Button) findViewById(R.id.btn5);
         Button btn6=(Button) findViewById(R.id.btn6);
+        Button btn7=(Button) findViewById(R.id.btn7);
+        Button btn8=(Button) findViewById(R.id.btn8);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,8 +88,80 @@ public class LeeCodeActivity extends AppCompatActivity {
                 leetCode1614();
             }
         });
+
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leetCode1572();
+            }
+        });
+
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leetCode572();
+            }
+        });
     }
 
+    /**
+     * 给定两个非空二叉树 s 和 t，检验 s 中是否包含和 t 具有相同结构和节点值的子树。s 的一个子树包括 s 的一个节点和这个节点的所有子孙。s 也可以看做它自身的一棵子树。
+     */
+    private void leetCode572() {
+        TreeNode tree= new TreeNode(0);
+        TreeNode tree1= new TreeNode(2);
+        TreeNode tree2= new TreeNode(3);
+        TreeNode tree3= new TreeNode(4);
+        TreeNode tree4= new TreeNode(5);
+        TreeNode tree5= new TreeNode(6);
+        tree.left = tree1;
+        tree.right = tree2;
+        tree1.left = tree3;
+        tree1.right = tree4;
+
+        Toast.makeText(this,"是否是一棵树的子树"+isSubTree(tree,tree1),Toast.LENGTH_SHORT).show();
+    }
+
+    private Boolean isSubTree(TreeNode s,TreeNode t){
+        if (t == null) return true;
+        if (s == null) return false;
+        return isSubTree(s.left,t) || isSubTree(s.right,t) ||isSameTree1(s,t);
+    }
+
+    private Boolean isSameTree1(TreeNode t1,TreeNode t2){
+        if (t1 == null && t2 == null) return true;
+        if (t1 == null || t2 == null) return false;
+        if (t1.value != t2.value) return  false;
+        return isSubTree(t1.left,t2.left) && isSubTree(t1.right,t2.right);
+    }
+
+    /**
+     * 输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。
+     */
+    private void leetCode1572() {
+        TreeNode tree= new TreeNode(0);
+        TreeNode tree1= new TreeNode(2);
+        TreeNode tree2= new TreeNode(3);
+        TreeNode tree3= new TreeNode(4);
+        TreeNode tree4= new TreeNode(5);
+        TreeNode tree5= new TreeNode(6);
+        tree.left = tree1;
+        tree.right = tree2;
+        tree1.left = tree3;
+        tree1.right = tree4;
+        //tree4.left = tree5;
+        Toast.makeText(this, "是否为平衡树："+isBalanced(tree),Toast.LENGTH_SHORT).show();
+    }
+
+    private Boolean isBalanced(TreeNode treeNode){
+        if (treeNode == null) return true;
+        return isBalanced(treeNode.left) && isBalanced(treeNode.right) && Math.abs(depth(treeNode.left) - depth(treeNode.right)) <= 1;
+    }
+
+    private int depth(TreeNode treeNode){
+        if (treeNode == null) return 0;
+        return Math.max(depth(treeNode.left),depth(treeNode.right)) +1;
+    }
     private void quickSort(int[] arr, int low, int high) {
         int x,y,tmp;
         if (low > high){
