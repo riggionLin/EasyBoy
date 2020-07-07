@@ -2,21 +2,15 @@ package com.example.rorydemo.custview
 
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.size
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ScreenUtils
 import com.example.rorydemo.R
-import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexboxLayout
 import com.google.android.flexbox.JustifyContent
 
 import kotlinx.android.synthetic.main.activity_cust.*
-import kotlinx.android.synthetic.main.activity_cust.view.*
 import org.jetbrains.anko.dip
 
 /**
@@ -31,7 +25,6 @@ class CustActivity :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cust)
-
         fl.justifyContent  = JustifyContent.CENTER
         println("屏幕宽度：${ScreenUtils.getAppScreenWidth()}")
         println("屏幕高度：${ScreenUtils.getAppScreenHeight()}")
