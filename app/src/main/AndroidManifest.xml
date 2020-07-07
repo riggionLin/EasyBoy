@@ -16,13 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".viewmodel.ViewModelActivity" android:screenOrientation="portrait"/>
         <activity android:name=".intentService.IntentServiceActivity" android:screenOrientation="portrait"/>
         <activity android:name=".generi.GenericActivity" android:screenOrientation="portrait"/>
         <activity android:name=".leecode.LeeCodeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".kotlin.KotlinActivity" android:screenOrientation="portrait"/>
         <activity android:name=".launch.LaunchActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".custview.CustActivity">
+
+        </activity>
         <service android:name=".intentService.DownLoadIMageIntentService"/>
     </application>
 

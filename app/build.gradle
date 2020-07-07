@@ -41,4 +41,10 @@ dependencies {
     implementation deps.android.ktx.lifecycle
     implementation deps.android.ktx.livedata
     implementation deps.android.ktx.viewmodel
+    //添加anko
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    //添加流式布局
+    implementation 'com.google.android:flexbox:2.0.1'
+    //强大的工具集合
+    implementation 'com.blankj:utilcodex:1.29.0'
 }

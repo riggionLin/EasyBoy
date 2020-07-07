@@ -1,5 +1,6 @@
 package com.example.rorydemo.generi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rorydemo.R;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Author by roryLin, Email xx@xx.com, Date on 2020/6/12.
@@ -28,5 +32,11 @@ public class GenericActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+
+
+
+
 }

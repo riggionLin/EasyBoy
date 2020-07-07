@@ -9,7 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.rorydemo.R;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 
 /**
@@ -31,6 +33,8 @@ public class LeeCodeActivity extends AppCompatActivity {
         Button btn6=(Button) findViewById(R.id.btn6);
         Button btn7=(Button) findViewById(R.id.btn7);
         Button btn8=(Button) findViewById(R.id.btn8);
+        Button btn9=(Button) findViewById(R.id.btn9);
+        Button btn10=(Button) findViewById(R.id.btn10);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +106,87 @@ public class LeeCodeActivity extends AppCompatActivity {
                 leetCode572();
             }
         });
+
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leetCode1546();
+            }
+        });
+
+        btn10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                leetCode1551();
+            }
+        });
+
+    }
+
+    private void leetCode1551() {
+        TreeNode tree= new TreeNode(0);
+        TreeNode tree1= new TreeNode(1);
+        TreeNode tree2= new TreeNode(2);
+        TreeNode tree3= new TreeNode(3);
+        TreeNode tree4= new TreeNode(4);
+        tree.left = tree1;
+        tree.right = tree2;
+        tree1.left = tree3;
+        tree1.right = tree4;
+        printATree(tree);
+    }
+
+    private void printATree(TreeNode node){
+         List<List<Integer>> list= LevelOrder(node);
+         StringBuilder sb = new StringBuilder();
+         sb.append("[");
+         for (int i = 0;i<=list.size()-1;i++){
+             List<Integer> data=list.get(i);
+             for (int j= 0;j<=data.size()-1;j++){
+                 sb.append(""+data.get(j));
+                 sb.append("、");
+             }
+         }
+         sb.append("]");
+         System.out.println(sb.toString());
+    }
+
+    private List<List<Integer>> LevelOrder(TreeNode root){
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        if (root != null) queue.add(root);
+        while (!queue.isEmpty()){
+            List<Integer> temp = new ArrayList<>();
+            for (int i=queue.size();i>0;i--){
+                TreeNode node = queue.poll();
+                temp.add(node.value);
+                if (node.left != null) queue.add(node.left);
+                if (node.right!= null) queue.add(node.right);
+            }
+            res.add(temp);
+        }
+        return res;
+    }
+
+    private void leetCode1546() {
+        TreeNode tree= new TreeNode(0);
+        TreeNode tree1= new TreeNode(1);
+        TreeNode tree2= new TreeNode(2);
+        TreeNode tree3= new TreeNode(3);
+        TreeNode tree4= new TreeNode(4);
+        tree.left = tree1;
+        tree.right = tree2;
+        tree1.left = tree3;
+        tree1.right = tree4;
+        printATree(mirrorTree(tree));
+    }
+
+    public TreeNode mirrorTree(TreeNode treeNode){
+        if (treeNode == null) return null;
+        TreeNode temp = treeNode.left;
+        treeNode.left = mirrorTree(treeNode.right);
+        treeNode.right = mirrorTree(temp);
+        return  treeNode;
     }
 
     /**

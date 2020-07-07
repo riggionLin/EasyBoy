@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.billy.cc.core.component.CC
+import com.example.rorydemo.custview.CustActivity
 import com.example.rorydemo.generi.GenericActivity
 import com.example.rorydemo.intentService.IntentServiceActivity
 import com.example.rorydemo.kotlin.KotlinActivity
@@ -57,6 +58,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LaunchActivity::class.java))
         }
         fill(1, arrayOf(1,2,3))
+
+        btn8.setOnClickListener {
+            startActivity(Intent(this, CustActivity::class.java))
+        }
     }
 
 

@@ -37,6 +37,10 @@ class KotlinActivity :AppCompatActivity(){
 
     }
 
+    fun <T> fill(arr:Array<in T>,t:T){
+        arr[0] = t
+    }
+
     /**
      * 数据交换使用also
      */
