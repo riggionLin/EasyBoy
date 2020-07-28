@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 
 /**
@@ -35,6 +36,7 @@ public class LeeCodeActivity extends AppCompatActivity {
         Button btn8=(Button) findViewById(R.id.btn8);
         Button btn9=(Button) findViewById(R.id.btn9);
         Button btn10=(Button) findViewById(R.id.btn10);
+        Button btn11=(Button) findViewById(R.id.btn11);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +122,12 @@ public class LeeCodeActivity extends AppCompatActivity {
                 leetCode1551();
             }
         });
-
+        btn11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Toast.makeText(LeeCodeActivity.this,"是否是有效字符串"+isValid("{}()[]"),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void leetCode1551() {
@@ -491,5 +498,43 @@ public class LeeCodeActivity extends AppCompatActivity {
         }
     }
 
+    public boolean isValid(String s) {
+        if (s == null) return false;
+        char[] chars = s.toCharArray();
+        Stack stack = new Stack();
+        for (int i = 0; i < chars.length; i++) {
+            if (i == 0) {
+                stack.push(chars[0]);
+            } else {
+                switch (chars[i]) {
+                    case '}':
+                        handleData(stack, chars, i, '{');
+                        break;
+                    case ')':
+                        handleData(stack, chars, i, '(');
+                        break;
+                    case ']':
+                        handleData(stack, chars, i, '[');
+                        break;
+                    default:
+                        stack.push(chars[i]);
+                }
+            }
+        }
+
+        return stack.size() == 0 ? true : false;
+    }
+
+    public void handleData(Stack stack, char[] chars, int postion, char c1) {
+        if (stack.size() >= 1) {
+            char ch3 = (char) stack.pop();
+            if (ch3 != c1) {//不处理
+                stack.push(ch3);
+                stack.push(chars[postion]);
+            }
+        } else {
+            stack.push(chars[postion]);
+        }
+    }
 
 }

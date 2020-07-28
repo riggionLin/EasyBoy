@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="color_tv">#FFC107</color>
     <color name="color_tv2">#8BC34A</color>
+    <color name="color_video_bg">#ff202129</color>
 </resources>

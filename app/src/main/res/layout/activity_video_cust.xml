@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@color/color_video_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/fl"
+            app:flexWrap="wrap"
+            app:alignContent="flex_start"
+            app:alignItems="flex_start"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="150dp">
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:id="@+id/ll_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+</LinearLayout>

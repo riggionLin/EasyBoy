@@ -65,4 +65,10 @@
         android:text="遍历二叉树"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn11"
+        android:text="有效的括号,判断字符串是否有效"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

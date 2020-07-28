@@ -22,7 +22,7 @@
         <activity android:name=".leecode.LeeCodeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".kotlin.KotlinActivity" android:screenOrientation="portrait"/>
         <activity android:name=".launch.LaunchActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".custview.CustActivity">
+        <activity android:name=".custview.CustActivity" android:screenOrientation="landscape">
 
         </activity>
         <service android:name=".intentService.DownLoadIMageIntentService"/>

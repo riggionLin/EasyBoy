@@ -12,6 +12,7 @@ import com.example.rorydemo.R;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Author by roryLin, Email xx@xx.com, Date on 2020/6/12.
@@ -22,7 +23,7 @@ public class GenericActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generic);
 
-         Button btn= (Button) findViewById(R.id.btn);
+        Button btn = (Button) findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,11 +33,11 @@ public class GenericActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
 
 
-
-
 }
+
+
+

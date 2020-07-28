@@ -12,28 +12,56 @@
 
         <Button
             android:id="@+id/tv_click"
-            android:text="添加tv控件"
+            android:text="添加视频控件"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/remove_click"
-            android:text="删除tv控件"
+            android:text="删除视频控件"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/update_click"
+            android:text="更新视频控件"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-
+<LinearLayout
+    android:visibility="gone"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
     <com.google.android.flexbox.FlexboxLayout
         android:id="@+id/fl"
         app:flexWrap="wrap"
         app:alignContent="flex_start"
         app:alignItems="flex_start"
-        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="150dp">
     </com.google.android.flexbox.FlexboxLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:id="@+id/ll_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+</LinearLayout>
+
+    <com.example.rorydemo.custview.VideoCustLayout
+        android:id="@+id/vcl"
+        app:tab_hight = "75dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
