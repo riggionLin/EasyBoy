@@ -3,7 +3,9 @@ package com.example.rorydemo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.billy.cc.core.component.CC
+import com.blankj.utilcode.util.ToastUtils
 import com.example.rorydemo.custview.CustActivity
 import com.example.rorydemo.generi.GenericActivity
 import com.example.rorydemo.intentService.IntentServiceActivity
@@ -61,6 +63,11 @@ class MainActivity : AppCompatActivity() {
 
         btn8.setOnClickListener {
             startActivity(Intent(this, CustActivity::class.java))
+        }
+
+        btn9.setOnClickListener {
+            //Toast.makeText(this,"自定义吐司",Toast.LENGTH_SHORT).show()
+            utils.ToastUtils.showCenterToast(this,"自定义吐司")
         }
     }
 

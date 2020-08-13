@@ -1,2 +1,2 @@
-include ':app', ':me'
+include ':app', ':me', ':myplugin'
 rootProject.name='RoryDemo'

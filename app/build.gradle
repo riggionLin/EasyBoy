@@ -2,12 +2,13 @@ ext.mainApp = true //标记为主app module
 apply from: rootProject.file('cc-settings-2.gradle')
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.didi.dokit'
 
 android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.rorydemo"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -47,4 +48,6 @@ dependencies {
     implementation 'com.google.android:flexbox:2.0.1'
     //强大的工具集合
     implementation 'com.blankj:utilcodex:1.29.0'
+    debugImplementation "com.didichuxing.doraemonkit:doraemonkit:3.2.0"
+    releaseImplementation "com.didichuxing.doraemonkit:doraemonkit-no-op:3.2.0"
 }

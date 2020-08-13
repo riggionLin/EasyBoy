@@ -59,6 +59,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:text="自定义吐司"
+        android:id="@+id/btn9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <ProgressBar
         android:max="100"
         android:progress="50"
