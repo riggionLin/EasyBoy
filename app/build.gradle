@@ -50,4 +50,8 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.29.0'
     debugImplementation "com.didichuxing.doraemonkit:doraemonkit:3.2.0"
     releaseImplementation "com.didichuxing.doraemonkit:doraemonkit-no-op:3.2.0"
+
+    api "com.ricky:retrofitExceptionDispatcher:0.6" // 责任链分发异常 https://github.com/vihuela/Retrofitplus
+    api "androidx.cardview:cardview:1.0.0"
+    api "androidx.recyclerview:recyclerview:1.1.0"
 }

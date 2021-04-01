@@ -12,15 +12,25 @@ import com.example.rorydemo.intentService.IntentServiceActivity
 import com.example.rorydemo.kotlin.KotlinActivity
 import com.example.rorydemo.launch.LaunchActivity
 import com.example.rorydemo.leecode.LeeCodeActivity
+import com.example.rorydemo.multiState.IStateChangeView
+import com.example.rorydemo.multiState.MultiStateView
 import com.example.rorydemo.viewmodel.ViewModelActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IStateChangeView {
 
+    //IStateChangeView
+    override fun getStateView(): MultiStateView? {
+        //返回不同布局的view
+        return super.getStateView(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //IStateChangeView 设置需要切换不同布局的上下文
+        stateViewSetup(this)
 
         btn.setOnClickListener {
             startActivity(Intent(this,ViewModelActivity::class.java))
@@ -69,6 +79,9 @@ class MainActivity : AppCompatActivity() {
             //Toast.makeText(this,"自定义吐司",Toast.LENGTH_SHORT).show()
             utils.ToastUtils.showCenterToast(this,"自定义吐司")
         }
+        btn9.postDelayed({
+            stateViewContent()
+        },2000)
     }
 
 

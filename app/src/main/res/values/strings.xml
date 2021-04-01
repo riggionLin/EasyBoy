@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">RoryDemo</string>
+    <string name="xbu_network_retry_tip">请检查网络是否连接</string>
+    <string name="xbu_network_mobile_tip">请注意，您现在使用的是移动网络</string>
+    <string name="xbu_check_permission">请前往应用管理设置App权限</string>
+    <string name="xbu_dialog_normal_title">提示</string>
+    <string name="xbu_empty_view_title">暂无数据</string>
+    <string name="xbu_error_view_title">发生了一些错误</string>
+    <string name="xbu_error_view_btn">重试</string>
+    <string name="xbu_loading">正在加载</string>
+    <string name="xbu_permission_request_error">没有权限运行</string>
 </resources>
